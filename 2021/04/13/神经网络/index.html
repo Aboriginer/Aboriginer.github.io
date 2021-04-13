@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="神经网络">
+<meta property="og:url" content="http://example.com/2021/04/13/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210413112159.png">
+<meta property="article:published_time" content="2021-04-13T03:20:59.000Z">
+<meta property="article:modified_time" content="2021-04-13T03:26:24.346Z">
+<meta property="article:author" content="Chentaocao">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210413112159.png">
+
+<link rel="canonical" href="http://example.com/2021/04/13/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>神经网络 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/13/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Chentaocao">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          神经网络
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-04-13 11:20:59 / Modified: 11:26:24" itemprop="dateCreated datePublished" datetime="2021-04-13T11:20:59+08:00">2021-04-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210413112159.png" style="zoom:80%;" />
+
+<span id="more"></span> 
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> pandas.plotting <span class="keyword">import</span> radviz</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    构建具有一个隐藏层的神经网络，隐藏层的节点数目为10</span></span><br><span class="line"><span class="string">    输入层4个特征，输出层3个分类</span></span><br><span class="line"><span class="string">    (1, 0, 0)为第一类， (0, 1, 0)为第二类，(0, 0, 1)为第三类</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1.初始化参数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">initialze_parameters</span>(<span class="params">n_x, n_h, n_y</span>):</span></span><br><span class="line">    np.random.seed(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 权重和偏置矩阵</span></span><br><span class="line">    w1 = np.random.randn(n_h, n_x) * <span class="number">0.01</span>   <span class="comment"># weight matrix of shape (n_h, n_x)</span></span><br><span class="line">    b1 = np.zeros(shape=(n_h, <span class="number">1</span>))   <span class="comment"># bias vector of shape (n_h, 1)</span></span><br><span class="line">    w2 = np.random.randn(n_y, n_h) * <span class="number">0.01</span>   <span class="comment"># weight matrix of shape (n_y, n_h)</span></span><br><span class="line">    b2 = np.zeros(shape=(n_y, <span class="number">1</span>))   <span class="comment"># bias vector of shape (n_y, 1)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 通过字典存储参数</span></span><br><span class="line">    parameters = &#123;<span class="string">&#x27;w1&#x27;</span>: w1, <span class="string">&#x27;b1&#x27;</span>: b1, <span class="string">&#x27;w2&#x27;</span>: w2, <span class="string">&#x27;b2&#x27;</span>: b2&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> parameters</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2.前向传播</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">forward_propagation</span>(<span class="params">X, parameters</span>):</span></span><br><span class="line">    w1 = parameters[<span class="string">&#x27;w1&#x27;</span>]</span><br><span class="line">    b1 = parameters[<span class="string">&#x27;b1&#x27;</span>]</span><br><span class="line">    w2 = parameters[<span class="string">&#x27;w2&#x27;</span>]</span><br><span class="line">    b2 = parameters[<span class="string">&#x27;b2&#x27;</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 通过前向传播来计算a2</span></span><br><span class="line">    z1 = np.dot(w1, X) + b1     <span class="comment"># 虽然w1*X和b的维度不同，但是广播后可以相加</span></span><br><span class="line">    a1 = np.tanh(z1)    <span class="comment"># 使用tanh作为第一次的激活函数</span></span><br><span class="line">    z2 = np.dot(w2, a1) + b2</span><br><span class="line">    a2 = <span class="number">1</span> / (<span class="number">1</span> + np.exp(-z2))  <span class="comment"># 使用sigmod作为第二层的激活函数</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 通过字典存储参数</span></span><br><span class="line">    cache = &#123;<span class="string">&#x27;z1&#x27;</span>: z1, <span class="string">&#x27;a1&#x27;</span>: a1, <span class="string">&#x27;z2&#x27;</span>: z2, <span class="string">&#x27;a2&#x27;</span>: a2&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> a2, cache</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3.计算代价函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_cost</span>(<span class="params">a2, Y</span>):</span></span><br><span class="line">    m = Y.shape[<span class="number">1</span>]  <span class="comment"># Y的列数即为总样本数：120</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 采用交叉熵作为代价函数</span></span><br><span class="line">    logprobs = np.multiply(np.log(a2), Y) + np.multiply((<span class="number">1</span> - Y), np.log(<span class="number">1</span> - a2))</span><br><span class="line">    cost = -np.<span class="built_in">sum</span>(logprobs) / m</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> cost</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4.反向传播，计算代价函数的偏导</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">backward_propagation</span>(<span class="params">parameters, cache, X, Y</span>):</span></span><br><span class="line">    m = Y.shape[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    w2 = parameters[<span class="string">&#x27;w2&#x27;</span>]</span><br><span class="line"></span><br><span class="line">    a1 = cache[<span class="string">&#x27;a1&#x27;</span>]</span><br><span class="line">    a2 = cache[<span class="string">&#x27;a2&#x27;</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 反向传播，计算dw1, db1, dw2, db2</span></span><br><span class="line">    dz2 = a2 - Y</span><br><span class="line">    dw2 = (<span class="number">1</span> / m) * np.dot(dz2, a1.T)</span><br><span class="line">    db2 = (<span class="number">1</span> / m) * np.<span class="built_in">sum</span>(dz2, axis=<span class="number">1</span>, keepdims=<span class="literal">True</span>)</span><br><span class="line">    dz1 = np.multiply(np.dot(w2.T, dz2), <span class="number">1</span> - np.power(a1, <span class="number">2</span>))</span><br><span class="line">    dw1 = (<span class="number">1</span> / m) * np.dot(dz1, X.T)</span><br><span class="line">    db1 = (<span class="number">1</span> / m) * np.<span class="built_in">sum</span>(dz1, axis=<span class="number">1</span>, keepdims=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    grads = &#123;<span class="string">&#x27;dw1&#x27;</span>: dw1, <span class="string">&#x27;db1&#x27;</span>: db1, <span class="string">&#x27;dw2&#x27;</span>: dw2, <span class="string">&#x27;db2&#x27;</span>: db2&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> grads</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新参数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">update_parameters</span>(<span class="params">parameters, grads, learning_rate=<span class="number">0.4</span></span>):</span></span><br><span class="line">    w1 = parameters[<span class="string">&#x27;w1&#x27;</span>]</span><br><span class="line">    b1 = parameters[<span class="string">&#x27;b1&#x27;</span>]</span><br><span class="line">    w2 = parameters[<span class="string">&#x27;w2&#x27;</span>]</span><br><span class="line">    b2 = parameters[<span class="string">&#x27;b2&#x27;</span>]</span><br><span class="line"></span><br><span class="line">    dw1 = grads[<span class="string">&#x27;dw1&#x27;</span>]</span><br><span class="line">    db1 = grads[<span class="string">&#x27;db1&#x27;</span>]</span><br><span class="line">    dw2 = grads[<span class="string">&#x27;dw2&#x27;</span>]</span><br><span class="line">    db2 = grads[<span class="string">&#x27;db2&#x27;</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 更新参数</span></span><br><span class="line">    w1 = w1 - dw1 * learning_rate</span><br><span class="line">    b1 = b1 - db1 * learning_rate</span><br><span class="line">    w2 = w2 - dw2 * learning_rate</span><br><span class="line">    b2 = b2 - db2 * learning_rate</span><br><span class="line"></span><br><span class="line">    parameters = &#123;<span class="string">&#x27;w1&#x27;</span>: w1, <span class="string">&#x27;b1&#x27;</span>: b1, <span class="string">&#x27;w2&#x27;</span>: w2, <span class="string">&#x27;b2&#x27;</span>: b2&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> parameters</span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立神经网络</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">nn_model</span>(<span class="params">X, Y, n_h, n_input, n_output, num_iterations=<span class="number">10000</span>, print_cost=<span class="literal">False</span></span>):</span></span><br><span class="line">    np.random.seed(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">    n_x = n_input   <span class="comment"># 输入层节点数</span></span><br><span class="line">    n_y = n_output  <span class="comment"># 输出层节点数</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 1.初始化参数</span></span><br><span class="line">    parameters = initialze_parameters(n_x, n_h, n_y)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 梯度下降循环</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, num_iterations):</span><br><span class="line">        <span class="comment"># 2.前向传播</span></span><br><span class="line">        a2, cache = forward_propagation(X, parameters)</span><br><span class="line">        <span class="comment"># 3.计算代价函数</span></span><br><span class="line">        cost = compute_cost(a2, Y)</span><br><span class="line">        <span class="comment"># 4.反向传播</span></span><br><span class="line">        grads = backward_propagation(parameters, cache, X, Y)</span><br><span class="line">        <span class="comment"># 5.更新参数</span></span><br><span class="line">        parameters = update_parameters(parameters, grads)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 每1000次迭代，输出一次代价函数</span></span><br><span class="line">        <span class="keyword">if</span> print_cost <span class="keyword">and</span> i % <span class="number">1000</span> == <span class="number">0</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;迭代第%i次，代价函数为：%f&#x27;</span> % (i, cost))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> parameters</span><br><span class="line"></span><br><span class="line"><span class="comment"># 6.模型评估</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">predict</span>(<span class="params">parameters, x_test, y_test</span>):</span></span><br><span class="line">    w1 = parameters[<span class="string">&#x27;w1&#x27;</span>]</span><br><span class="line">    b1 = parameters[<span class="string">&#x27;b1&#x27;</span>]</span><br><span class="line">    w2 = parameters[<span class="string">&#x27;w2&#x27;</span>]</span><br><span class="line">    b2 = parameters[<span class="string">&#x27;b2&#x27;</span>]</span><br><span class="line"></span><br><span class="line">    z1 = np.dot(w1, x_test) + b1</span><br><span class="line">    a1 = np.tanh(z1)</span><br><span class="line">    z2 = np.dot(w2, a1) + b2</span><br><span class="line">    a2 = <span class="number">1</span> / (<span class="number">1</span> + np.exp(-z2))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 结果的维度</span></span><br><span class="line">    n_rows = y_test.shape[<span class="number">0</span>]</span><br><span class="line">    n_cols = y_test.shape[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 预测结果值存储</span></span><br><span class="line">    output = np.empty(shape=(n_rows, n_cols), dtype=<span class="built_in">int</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n_rows):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n_cols):</span><br><span class="line">            <span class="keyword">if</span> a2[i][j] &gt; <span class="number">0.5</span>:</span><br><span class="line">                output[i][j] = <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                output[i][j] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;预测结果：&#x27;</span>, output)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;真实结果：&#x27;</span>, y_test)</span><br><span class="line"></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, n_cols):</span><br><span class="line">        <span class="keyword">if</span> output[<span class="number">0</span>][k] == y_test[<span class="number">0</span>][k] <span class="keyword">and</span> output[<span class="number">1</span>][k] == y_test[<span class="number">1</span>][k] <span class="keyword">and</span> output[<span class="number">2</span>][k] == y_test[<span class="number">2</span>][k]:</span><br><span class="line">            count = count + <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;错误分类样本的序号：&#x27;</span>, k + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    acc = count / <span class="built_in">int</span>(y_test.shape[<span class="number">1</span>]) * <span class="number">100</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;准确率：%.2f%%&#x27;</span> % acc)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> output</span><br><span class="line"></span><br><span class="line"><span class="comment"># 7.结果可视化</span></span><br><span class="line"><span class="comment"># 特征有4个维度，类别有1个维度，所以采用RadViz图</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">result_visualization</span>(<span class="params">x_test, y_test, result</span>):</span></span><br><span class="line">    cols = y_test.shape[<span class="number">1</span>]</span><br><span class="line">    y = []</span><br><span class="line">    pre = []</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 反转类别的独热编码</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(cols):</span><br><span class="line">        <span class="keyword">if</span> y_test[<span class="number">0</span>][i] == <span class="number">0</span> <span class="keyword">and</span> y_test[<span class="number">1</span>][i] == <span class="number">0</span> <span class="keyword">and</span> y_test[<span class="number">2</span>][i] == <span class="number">1</span>:</span><br><span class="line">            y.append(<span class="string">&#x27;setosa&#x27;</span>)</span><br><span class="line">        <span class="keyword">elif</span> y_test[<span class="number">0</span>][i] == <span class="number">0</span> <span class="keyword">and</span> y_test[<span class="number">1</span>][i] == <span class="number">1</span> <span class="keyword">and</span> y_test[<span class="number">2</span>][i] == <span class="number">0</span>:</span><br><span class="line">            y.append(<span class="string">&#x27;versicolor&#x27;</span>)</span><br><span class="line">        <span class="keyword">elif</span> y_test[<span class="number">0</span>][i] == <span class="number">1</span> <span class="keyword">and</span> y_test[<span class="number">1</span>][i] == <span class="number">0</span> <span class="keyword">and</span> y_test[<span class="number">2</span>][i] == <span class="number">0</span>:</span><br><span class="line">            y.append(<span class="string">&#x27;virginica&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(cols):</span><br><span class="line">        <span class="keyword">if</span> result[<span class="number">0</span>][j] == <span class="number">0</span> <span class="keyword">and</span> result[<span class="number">1</span>][j] == <span class="number">0</span> <span class="keyword">and</span> result[<span class="number">2</span>][j] == <span class="number">1</span>:</span><br><span class="line">            pre.append(<span class="string">&#x27;setosa&#x27;</span>)</span><br><span class="line">        <span class="keyword">elif</span> result[<span class="number">0</span>][j] == <span class="number">0</span> <span class="keyword">and</span> result[<span class="number">1</span>][j] == <span class="number">1</span> <span class="keyword">and</span> result[<span class="number">2</span>][j] == <span class="number">0</span>:</span><br><span class="line">            pre.append(<span class="string">&#x27;versicolor&#x27;</span>)</span><br><span class="line">        <span class="keyword">elif</span> result[<span class="number">0</span>][j] == <span class="number">1</span> <span class="keyword">and</span> result[<span class="number">1</span>][j] == <span class="number">0</span> <span class="keyword">and</span> result[<span class="number">2</span>][j] == <span class="number">0</span>:</span><br><span class="line">            pre.append(<span class="string">&#x27;virginica&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            pre.append(<span class="string">&#x27;unknown&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 将特征和类别矩阵拼接起来</span></span><br><span class="line">    real = np.column_stack((x_test.T, y))</span><br><span class="line">    prediction = np.column_stack((x_test.T, pre))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 转换成DataFrame类型，并添加columns</span></span><br><span class="line">    df_real = pd.DataFrame(real, index=<span class="literal">None</span>, columns=[<span class="string">&#x27;Sepal Length&#x27;</span>, <span class="string">&#x27;Sepal Width&#x27;</span>, <span class="string">&#x27;Petal Length&#x27;</span>, <span class="string">&#x27;Petal Width&#x27;</span>, <span class="string">&#x27;Species&#x27;</span>])</span><br><span class="line">    df_prediction = pd.DataFrame(prediction, index=<span class="literal">None</span>, columns=[<span class="string">&#x27;Sepal Length&#x27;</span>, <span class="string">&#x27;Sepal Width&#x27;</span>, <span class="string">&#x27;Petal Length&#x27;</span>, <span class="string">&#x27;Petal Width&#x27;</span>, <span class="string">&#x27;Species&#x27;</span>])</span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment"># 将特征列转换为float类型</span></span><br><span class="line">    df_real[[<span class="string">&#x27;Sepal Length&#x27;</span>, <span class="string">&#x27;Sepal Width&#x27;</span>, <span class="string">&#x27;Petal Length&#x27;</span>, <span class="string">&#x27;Petal Width&#x27;</span>]] = df_real[[<span class="string">&#x27;Sepal Length&#x27;</span>, <span class="string">&#x27;Sepal Width&#x27;</span>, <span class="string">&#x27;Petal Length&#x27;</span>, <span class="string">&#x27;Petal Width&#x27;</span>]].astype(<span class="built_in">float</span>)</span><br><span class="line">    df_prediction[[<span class="string">&#x27;Sepal Length&#x27;</span>, <span class="string">&#x27;Sepal Width&#x27;</span>, <span class="string">&#x27;Petal Length&#x27;</span>, <span class="string">&#x27;Petal Width&#x27;</span>]] = df_prediction[[<span class="string">&#x27;Sepal Length&#x27;</span>, <span class="string">&#x27;Sepal Width&#x27;</span>, <span class="string">&#x27;Petal Length&#x27;</span>, <span class="string">&#x27;Petal Width&#x27;</span>]].astype(<span class="built_in">float</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 绘图</span></span><br><span class="line">    plt.figure(<span class="string">&#x27;真实分类&#x27;</span>)</span><br><span class="line">    radviz(df_real, <span class="string">&#x27;Species&#x27;</span>, color=[<span class="string">&#x27;blue&#x27;</span>, <span class="string">&#x27;green&#x27;</span>, <span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;yellow&#x27;</span>])</span><br><span class="line">    plt.figure(<span class="string">&#x27;预测分类&#x27;</span>)</span><br><span class="line">    radviz(df_prediction, <span class="string">&#x27;Species&#x27;</span>, color=[<span class="string">&#x27;blue&#x27;</span>, <span class="string">&#x27;green&#x27;</span>, <span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;yellow&#x27;</span>])</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># 读取数据</span></span><br><span class="line">    data_set = pd.read_csv(<span class="string">&#x27;iris_training.csv&#x27;</span>, header=<span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line">    X = data_set.iloc[:, <span class="number">0</span>:<span class="number">4</span>].values.T</span><br><span class="line">    Y = data_set.iloc[:, <span class="number">4</span>:].values.T</span><br><span class="line"></span><br><span class="line">    Y = Y.astype(<span class="string">&#x27;uint8&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 开始训练</span></span><br><span class="line">    start_time = datetime.datetime.now()</span><br><span class="line">    <span class="comment"># 输入4个节点，隐层10个节点，输出3个节点，迭代10000次</span></span><br><span class="line">    parameters = nn_model(X, Y, n_h=<span class="number">10</span>, n_input=<span class="number">4</span>, n_output=<span class="number">3</span>, num_iterations=<span class="number">10000</span>, print_cost=<span class="literal">True</span>)</span><br><span class="line">    end_time = datetime.datetime.now()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;用时：&quot;</span> + <span class="built_in">str</span>((end_time - start_time).seconds) + <span class="string">&#x27;s&#x27;</span> + <span class="built_in">str</span>(<span class="built_in">round</span>((end_time - start_time).microseconds / <span class="number">1000</span>)) + <span class="string">&#x27;ms&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 对模型进行测试</span></span><br><span class="line">    data_test = pd.read_csv(<span class="string">&#x27;iris_test.csv&#x27;</span>, header=<span class="literal">None</span>)</span><br><span class="line">    x_test = data_test.iloc[:, <span class="number">0</span>:<span class="number">4</span>].values.T</span><br><span class="line">    y_test = data_test.iloc[:, <span class="number">4</span>:].values.T</span><br><span class="line">    y_test = y_test.astype(<span class="string">&#x27;uint8&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    result = predict(parameters, x_test, y_test)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 分类结果可视化</span></span><br><span class="line">    result_visualization(x_test, y_test, result)</span><br></pre></td></tr></table></figure>
+
+<p>参考链接：<a target="_blank" rel="noopener" href="https://github.com/MichaelLee826/iris_classification_BPNeuralNetwork"><a target="_blank" rel="noopener" href="https://github.com/MichaelLee826/iris_classification_BPNeuralNetwork">iris_classification_BPNeuralNetwork</a></a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/11/2021-4-5-4-11/" rel="prev" title="2021.4.5-4.11">
+      <i class="fa fa-chevron-left"></i> 2021.4.5-4.11
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Chentaocao</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chentaocao</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
