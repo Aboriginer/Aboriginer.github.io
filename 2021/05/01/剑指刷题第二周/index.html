@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="2021.4.12~2021.4.18">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指刷题第二周">
+<meta property="og:url" content="http://example.com/2021/05/01/%E5%89%91%E6%8C%87%E5%88%B7%E9%A2%98%E7%AC%AC%E4%BA%8C%E5%91%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="2021.4.12~2021.4.18">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210412131120.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210413111821.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210413141829.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210413145152.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210413145811.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210413153346.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210413163604.jpeg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210414173937.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210415141455.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210429113407.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210429144124.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210429144650.jpg">
+<meta property="article:published_time" content="2021-05-01T03:22:18.000Z">
+<meta property="article:modified_time" content="2021-05-01T03:28:12.158Z">
+<meta property="article:author" content="Chentaocao">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210412131120.png">
+
+<link rel="canonical" href="http://example.com/2021/05/01/%E5%89%91%E6%8C%87%E5%88%B7%E9%A2%98%E7%AC%AC%E4%BA%8C%E5%91%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>剑指刷题第二周 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/01/%E5%89%91%E6%8C%87%E5%88%B7%E9%A2%98%E7%AC%AC%E4%BA%8C%E5%91%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Chentaocao">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          剑指刷题第二周
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-05-01 11:22:18 / Modified: 11:28:12" itemprop="dateCreated datePublished" datetime="2021-05-01T11:22:18+08:00">2021-05-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>2021.4.12~2021.4.18<span id="more"></span>  </p>
+<h3 id="剑指13-机器人的运动范围"><a href="#剑指13-机器人的运动范围" class="headerlink" title="剑指13 - 机器人的运动范围"></a>剑指13 - 机器人的运动范围</h3><p>思路：典型的BFS问题</p>
+<img src="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210412131120.png" style="zoom:70%;" />
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">get_sum</span><span class="params">(pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> s = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (p.first) &#123;</span><br><span class="line">            s += p.first % <span class="number">10</span>;</span><br><span class="line">            p.first /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (p.second) &#123;</span><br><span class="line">            s += p.second % <span class="number">10</span>;</span><br><span class="line">            p.second /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">movingCount</span><span class="params">(<span class="keyword">int</span> threshold, <span class="keyword">int</span> rows, <span class="keyword">int</span> cols)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!rows || !cols)   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        queue&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; q;</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">bool</span>&gt;&gt; <span class="built_in">st</span>(rows, vector&lt;<span class="keyword">bool</span>&gt; (cols, <span class="literal">false</span>));</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>&#125;, dy[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        q.<span class="built_in">push</span>(&#123;<span class="number">0</span>, <span class="number">0</span>&#125;);</span><br><span class="line">        <span class="keyword">while</span> (q.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">auto</span> t = q.<span class="built_in">front</span>();</span><br><span class="line">            q.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="keyword">if</span> (st[t.first][t.second] || <span class="built_in">get_sum</span>(t) &gt; threshold)    <span class="keyword">continue</span>;</span><br><span class="line">            res ++;</span><br><span class="line">            st[t.first][t.second] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i ++ ) &#123;</span><br><span class="line">                <span class="keyword">int</span> x = t.first + dx[i], y = t.second + dy[i];</span><br><span class="line">                <span class="keyword">if</span> (x &gt;= <span class="number">0</span> &amp;&amp; x &lt; rows &amp;&amp; y &gt;= <span class="number">0</span> &amp;&amp; y &lt; cols)   q.<span class="built_in">push</span>(&#123;x, y&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用DFS比较暴力也可以</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">movingCount</span><span class="params">(<span class="keyword">int</span> threshold, <span class="keyword">int</span> rows, <span class="keyword">int</span> cols)</span> </span>&#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="keyword">bool</span>&gt;&gt; <span class="built_in">vis</span>(rows, vector&lt;<span class="keyword">bool</span>&gt;(cols));</span><br><span class="line">        <span class="keyword">if</span> (!rows || !cols) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">dfs</span>(threshold, <span class="number">0</span>, <span class="number">0</span>, vis);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> threshold, <span class="keyword">int</span> i, <span class="keyword">int</span> j, vector&lt;vector&lt;<span class="keyword">bool</span>&gt;&gt;&amp; vis)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (i &lt; <span class="number">0</span> || i &gt; vis.<span class="built_in">size</span>() <span class="number">-1</span> || j &lt; <span class="number">0</span> || j &gt; vis[i].<span class="built_in">size</span>() - <span class="number">1</span> || vis[i][j] || (i/<span class="number">10</span> + i%<span class="number">10</span> + j/<span class="number">10</span> + j%<span class="number">10</span>) &gt; threshold)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        vis[i][j] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">dfs</span>(threshold, i - <span class="number">1</span>, j, vis) + <span class="built_in">dfs</span>(threshold, i, j - <span class="number">1</span>, vis) + <span class="built_in">dfs</span>(threshold, i + <span class="number">1</span>, j, vis) + <span class="built_in">dfs</span>(threshold, i, j + <span class="number">1</span>, vis) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="剑指14-剪绳子"><a href="#剑指14-剪绳子" class="headerlink" title="剑指14 - 剪绳子"></a>剑指14 - 剪绳子</h3><p>思路：<br>1.剪断的绳子长度肯定没有大于5的：若大于5，还可以再剪一段3来比原先乘积更大<br>   证明：n &gt;= 5, 则3 * (n - 3) &gt; n<br>2.剪短的绳子长度肯定可以没有4：4可以拆成两个2<br>3.剪短绳子长度里，长度为2的至多两端<br>   证明：若2的长度有三段及以上，2 * 2 * 2 &lt; 3 * 3</p>
+<img src="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210413111821.png" style="zoom:70%;" />
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProductAfterCutting</span><span class="params">(<span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (length &lt;= <span class="number">3</span>)    <span class="keyword">return</span> <span class="number">1</span> * (length - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (length % <span class="number">3</span> == <span class="number">1</span>)    res = <span class="number">4</span>, length -= <span class="number">4</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (length % <span class="number">3</span> == <span class="number">2</span>)   res = <span class="number">2</span>, length -= <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">while</span> (length)   res *= <span class="number">3</span>, length -= <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="剑指15-二进制中1的个数"><a href="#剑指15-二进制中1的个数" class="headerlink" title="剑指15 - 二进制中1的个数"></a>剑指15 - 二进制中1的个数</h3><p>思路：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210413141829.png" alt="image-20210413141829274"></p>
+<p>将负数转化为无符号整数：在二进制中的表示还是一样，但是实际上是一个很大的数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">NumberOf1</span><span class="params">(<span class="keyword">int</span> _n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">int</span> n = _n;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> s = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (n) &#123;</span><br><span class="line">            s += n &amp; <span class="number">1</span>;</span><br><span class="line">            n &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="剑指16-数值的整数次方"><a href="#剑指16-数值的整数次方" class="headerlink" title="剑指16 - 数值的整数次方"></a>剑指16 - 数值的整数次方</h3><p>思路：本题的指数是int范围，可以很大，所以需要使用快速幂</p>
+<h4 id="Acwing-875-快速幂"><a href="#Acwing-875-快速幂" class="headerlink" title="Acwing 875 快速幂"></a>Acwing 875 快速幂</h4><img src="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210413145152.png" style="zoom:70%;" />
+
+<p>思路：反复平方</p>
+<img src="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210413145811.png" style="zoom:47%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210413153346.jpg" alt="20210413_073045000_iOS" style="zoom:36%;" />
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="comment">// a^k % p</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qmi</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> k, <span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (k) &#123;</span><br><span class="line">        <span class="keyword">if</span> (k &amp; <span class="number">1</span>)  res = (LL)res * a % p;</span><br><span class="line">        k &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        a = (LL)a * a % p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">while</span>(n --)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> a, k, p;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;a, &amp;k, &amp;p);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="built_in">qmi</span>(a, k, p));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="数值的整数次方"><a href="#数值的整数次方" class="headerlink" title="数值的整数次方"></a>数值的整数次方</h4><p>思路：本题的指数是int范围，可以很大，所以需要使用快速幂；如果指数是负数，先按正数算，再取倒数</p>
+<img src="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210413163604.jpeg" alt="12" style="zoom:80%;" />
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">Power</span><span class="params">(<span class="keyword">double</span> base, <span class="keyword">int</span> exponent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line">        <span class="keyword">bool</span> is_minus = exponent &lt; <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">double</span> res = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (LL k = <span class="built_in">abs</span>(<span class="built_in">LL</span>(exponent)); k; k &gt;&gt;= <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (k &amp; <span class="number">1</span>)  res *= base;</span><br><span class="line">            base *= base;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (is_minus)   res = <span class="number">1</span> / res;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="剑指18-在O-1-的时间删除链表节点"><a href="#剑指18-在O-1-的时间删除链表节点" class="headerlink" title="剑指18 - 在O(1)的时间删除链表节点"></a>剑指18 - 在O(1)的时间删除链表节点</h3><p>思路：由于是单链表，不能找到前驱节点，所以直接将下一节点的值复制到该节点，如何将下一节点删除<br>注：工程代码中不能这样写</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">deleteNode</span><span class="params">(ListNode* node)</span> </span>&#123;</span><br><span class="line">        node-&gt;val = node-&gt;next-&gt;val;</span><br><span class="line">        node-&gt;next = node-&gt;next-&gt;next;</span><br><span class="line">        <span class="comment">// *(node) = *(node-&gt;next);</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除链表中的重复节点"><a href="#删除链表中的重复节点" class="headerlink" title="删除链表中的重复节点"></a>删除链表中的重复节点</h3><p>凡是有可能会把头节点删掉的情况，都会定义一个虚拟的头节点dummy来简化代码</p>
+<p>思路：一个指针p指向上一段保留的末尾，另一个指针q指向下一段的开头，q起扫描的作用</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">deleteDuplication</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode* dummy = <span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>);</span><br><span class="line">        dummy-&gt;next = head;</span><br><span class="line">        <span class="keyword">auto</span> p = dummy;</span><br><span class="line">        <span class="keyword">while</span> (p-&gt;next) &#123;</span><br><span class="line">            <span class="keyword">auto</span> q = p-&gt;next;</span><br><span class="line">            <span class="keyword">while</span> (q &amp;&amp; q-&gt;val == p-&gt;next-&gt;val)  q = q-&gt;next;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (p-&gt;next-&gt;next == q) p = p-&gt;next;</span><br><span class="line">            <span class="comment">// 改变的是p，p直接从当前这个节点跳到q节点，但是p走到的这个节点的next并没有被改变</span></span><br><span class="line">            <span class="comment">// else    p = q;</span></span><br><span class="line">            <span class="comment">// p-&gt;next的含义还是在当前这个节点，但是把当前节点内部的next指针给改到q了</span></span><br><span class="line">            <span class="keyword">else</span>    p-&gt;next = q;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="剑指22-链表中倒数第k个节点"><a href="#剑指22-链表中倒数第k个节点" class="headerlink" title="剑指22 - 链表中倒数第k个节点"></a>剑指22 - 链表中倒数第k个节点</h3><p>思路如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210414173937.png" alt="image-20210414173930643"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">findKthToTail</span><span class="params">(ListNode* head, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> p = head; p; p = p-&gt;next) n ++ ;</span><br><span class="line">        <span class="keyword">if</span> (n &lt; k) <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">auto</span> p = head;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - k; i ++ ) p = p-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="剑指19-正则表达式匹配-经典动态规划问题"><a href="#剑指19-正则表达式匹配-经典动态规划问题" class="headerlink" title="剑指19 - 正则表达式匹配 - 经典动态规划问题"></a>剑指19 - 正则表达式匹配 - 经典动态规划问题</h3><p>思路：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">状态表示：f[i][j]表示第一个串从第i个字母开始到最后，第二个串从第j个字母开始到最后是匹配的</span><br><span class="line">			   表示s[i, ...]和p[j, ...]相匹配</span><br><span class="line">状态转移：分情况讨论</span><br><span class="line">1.p[j]是正常字符，f[i][j] &#x3D; s[i] &#x3D;&#x3D; p[j] &amp;&amp; f[i + 1][j + 1];</span><br><span class="line">2.p[j]是&#39;.&#39;，f[i][j] &#x3D; f[i + 1][j + 1]</span><br><span class="line">3.p[j + 1]是&#39;*&#39;，最暴力的做法的是循环一遍s[i]和p[j],枚举&#39;*&#39;表示几个&#39;*&#39;前面的字符</span><br><span class="line">  经过观察可以发现，f[i][j]除了枚举0个p[j]之外，其余枚举可以包含在f[i+1][j]中，所以只需要判断f[i+1][j]十分为真，以及s[i]和p[j]是否匹配即可	f[i][j] &#x3D; f[i][j+2] || f[i+1][j]</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210415141455.png" alt="image-20210415141448417"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> n, m;</span><br><span class="line">    vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; f;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span><span class="params">(string s, string p)</span> </span>&#123;</span><br><span class="line">        n = s.<span class="built_in">size</span>();</span><br><span class="line">        m = p.<span class="built_in">size</span>();</span><br><span class="line">        f = vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; (n + <span class="number">1</span>, vector&lt;<span class="keyword">int</span>&gt; (m + <span class="number">1</span>, <span class="number">-1</span>));</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">dp</span>(<span class="number">0</span>, <span class="number">0</span>, s, p);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">dp</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, string &amp;s, string &amp;p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (f[x][y] != <span class="number">-1</span>)  <span class="keyword">return</span> f[x][y];</span><br><span class="line">        <span class="keyword">if</span> (y == m) <span class="keyword">return</span> f[x][y] = x == n;</span><br><span class="line">        <span class="keyword">bool</span> first_match = x &lt; n &amp;&amp; (s[x] == p[y] || p[y] == <span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">        <span class="keyword">bool</span> ans;</span><br><span class="line">        <span class="keyword">if</span> (y + <span class="number">1</span> &lt; m &amp;&amp; p[y + <span class="number">1</span>] == <span class="string">&#x27;*&#x27;</span>) </span><br><span class="line">            ans = <span class="built_in">dp</span>(x, y + <span class="number">2</span>, s, p) || first_match &amp;&amp; <span class="built_in">dp</span>(x + <span class="number">1</span>, y, s, p);</span><br><span class="line">            <span class="comment">// ans = dp(x, y + 2, s, p) || dp(x + 1, y, s, p);</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            ans = first_match &amp;&amp; <span class="built_in">dp</span>(x + <span class="number">1</span>, y + <span class="number">1</span>, s, p);</span><br><span class="line">        <span class="keyword">return</span> f[x][y] = ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="剑指20-表达数值的字符串"><a href="#剑指20-表达数值的字符串" class="headerlink" title="剑指20 - 表达数值的字符串"></a>剑指20 - 表达数值的字符串</h3><p>思路：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210429113407.png" alt="image-20210429113400268"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isNumber</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// delete &#x27; &#x27;</span></span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = s.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; s.<span class="built_in">size</span>() &amp;&amp; s[i] == <span class="string">&#x27; &#x27;</span>)  i ++;</span><br><span class="line">        <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; s[j] == <span class="string">&#x27; &#x27;</span>)    j --;</span><br><span class="line">        <span class="keyword">if</span> (i &gt; j)  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        s = s.<span class="built_in">substr</span>(i, j - i + <span class="number">1</span>);</span><br><span class="line">        <span class="comment">// ignore front &#x27;+&#x27; &#x27;-&#x27;</span></span><br><span class="line">        <span class="keyword">if</span> (s[<span class="number">0</span>] == <span class="string">&#x27;+&#x27;</span> || s[<span class="number">0</span>] == <span class="string">&#x27;-&#x27;</span>) s = s.<span class="built_in">substr</span>(<span class="number">1</span>);</span><br><span class="line">        <span class="comment">// str = &quot; &quot; or &quot;.&quot;</span></span><br><span class="line">        <span class="keyword">if</span> (s.<span class="built_in">empty</span>() || s[<span class="number">0</span>] == <span class="string">&#x27;.&#x27;</span> &amp;&amp; s.<span class="built_in">size</span>() == <span class="number">1</span>)  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">// loop</span></span><br><span class="line">        <span class="keyword">int</span> dot = <span class="number">0</span>, e = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i ++ ) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[i] &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; s[i] &lt;= <span class="string">&#x27;9&#x27;</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (s[i] == <span class="string">&#x27;.&#x27;</span>) &#123;</span><br><span class="line">                dot ++;</span><br><span class="line">                <span class="keyword">if</span> (e || dot &gt; <span class="number">1</span>)   <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (s[i] == <span class="string">&#x27;e&#x27;</span> || s[i] == <span class="string">&#x27;E&#x27;</span>) &#123;</span><br><span class="line">                e ++;</span><br><span class="line">                <span class="keyword">if</span> (i + <span class="number">1</span> == s.<span class="built_in">size</span>() || !i || e &gt; <span class="number">1</span> || s[<span class="number">0</span>] == <span class="string">&#x27;.&#x27;</span> &amp;&amp; i == <span class="number">1</span>)  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">if</span> (s[i + <span class="number">1</span>] == <span class="string">&#x27;+&#x27;</span> || s[i + <span class="number">1</span>] == <span class="string">&#x27;-&#x27;</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (i + <span class="number">2</span> == s.<span class="built_in">size</span>())  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                    i ++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="剑指21-调整数组顺序使奇数在前偶数在后"><a href="#剑指21-调整数组顺序使奇数在前偶数在后" class="headerlink" title="剑指21 - 调整数组顺序使奇数在前偶数在后"></a>剑指21 - 调整数组顺序使奇数在前偶数在后</h3><p>思路：数组开头一个指针往后扫，末尾一个指针往前扫，如果遇到需要交换的就两个数组元素互换，直到两个指针相遇</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">reOrderArray</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt; &amp;array)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">0</span>, r = array.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">            <span class="keyword">while</span> (array[l] % <span class="number">2</span> == <span class="number">1</span>)   l ++;</span><br><span class="line">            <span class="keyword">while</span> (array[r] % <span class="number">2</span> == <span class="number">0</span>)   r --;</span><br><span class="line">            <span class="keyword">if</span> (l &lt; r)  <span class="built_in">swap</span>(array[l], array[r]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="剑指23-链表环的入口节点"><a href="#剑指23-链表环的入口节点" class="headerlink" title="剑指23 - 链表环的入口节点"></a>剑指23 - 链表环的入口节点</h3><p>思路：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210429144124.png" alt="image-20210429144124612"></p>
+<img src="https://cdn.jsdelivr.net/gh/Aboriginer/PictureBed/BlogImg/20210429144650.jpg" style="zoom:60%;" />
+
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode *<span class="title">entryNodeOfLoop</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head || !head-&gt;next)   <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">auto</span> first = head;</span><br><span class="line">        <span class="keyword">auto</span> second = head;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (first &amp;&amp; second) &#123;</span><br><span class="line">            first = first-&gt;next;</span><br><span class="line">            second = second-&gt;next;</span><br><span class="line">            <span class="keyword">if</span> (second) second = second-&gt;next;</span><br><span class="line">            <span class="keyword">else</span>    <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (first == second) &#123;</span><br><span class="line">                first = head;</span><br><span class="line">                <span class="keyword">while</span> (first != second) &#123;</span><br><span class="line">                    first = first-&gt;next;</span><br><span class="line">                    second = second-&gt;next;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> first;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/25/2021-4-19-2021-4-25/" rel="prev" title="2021.4.19-2021.4.25">
+      <i class="fa fa-chevron-left"></i> 2021.4.19-2021.4.25
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/01/%E5%89%91%E6%8C%87%E5%88%B7%E9%A2%98%E7%AC%AC%E4%B8%89%E5%91%A8/" rel="next" title="剑指刷题第三周">
+      剑指刷题第三周 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%91%E6%8C%8713-%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4"><span class="nav-number">1.</span> <span class="nav-text">剑指13 - 机器人的运动范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%91%E6%8C%8714-%E5%89%AA%E7%BB%B3%E5%AD%90"><span class="nav-number">2.</span> <span class="nav-text">剑指14 - 剪绳子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%91%E6%8C%8715-%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">剑指15 - 二进制中1的个数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%91%E6%8C%8716-%E6%95%B0%E5%80%BC%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E6%96%B9"><span class="nav-number">4.</span> <span class="nav-text">剑指16 - 数值的整数次方</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Acwing-875-%E5%BF%AB%E9%80%9F%E5%B9%82"><span class="nav-number">4.1.</span> <span class="nav-text">Acwing 875 快速幂</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%80%BC%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E6%96%B9"><span class="nav-number">4.2.</span> <span class="nav-text">数值的整数次方</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%91%E6%8C%8718-%E5%9C%A8O-1-%E7%9A%84%E6%97%B6%E9%97%B4%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E8%8A%82%E7%82%B9"><span class="nav-number">5.</span> <span class="nav-text">剑指18 - 在O(1)的时间删除链表节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E8%8A%82%E7%82%B9"><span class="nav-number">6.</span> <span class="nav-text">删除链表中的重复节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%91%E6%8C%8722-%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E8%8A%82%E7%82%B9"><span class="nav-number">7.</span> <span class="nav-text">剑指22 - 链表中倒数第k个节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%91%E6%8C%8719-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D-%E7%BB%8F%E5%85%B8%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98"><span class="nav-number">8.</span> <span class="nav-text">剑指19 - 正则表达式匹配 - 经典动态规划问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%91%E6%8C%8720-%E8%A1%A8%E8%BE%BE%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">9.</span> <span class="nav-text">剑指20 - 表达数值的字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%91%E6%8C%8721-%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E5%9C%A8%E5%89%8D%E5%81%B6%E6%95%B0%E5%9C%A8%E5%90%8E"><span class="nav-number">10.</span> <span class="nav-text">剑指21 - 调整数组顺序使奇数在前偶数在后</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%91%E6%8C%8723-%E9%93%BE%E8%A1%A8%E7%8E%AF%E7%9A%84%E5%85%A5%E5%8F%A3%E8%8A%82%E7%82%B9"><span class="nav-number">11.</span> <span class="nav-text">剑指23 - 链表环的入口节点</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Chentaocao</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chentaocao</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
